@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Playfair+Display&family=Roboto:wght@500&display=swap");
+.product-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.product-item-left {
+  padding: 0 100px;
+  width: 30%;
+  /* height: 500px;  */
+}
+.product-item-right {
+  padding: 0 100px;
+}
+.product-item-right img {
+  width: 100px;
+}
+.btn {
+  margin-top: 20px;
+  padding: 10px 150px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  border-radius: 3px;
+  border: 0px solid black;
+}

@@ -1,0 +1,33 @@
+.product-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.product-container img {
+  width: 250px;
+  height: 350px;
+}
+.product-container img:hover {
+  animation: productContainer 2.8s ease-in-out;
+}
+@keyframes productContainer {
+  50% {
+    transform: scale(1.2);
+  }
+}
+.variants {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+.color-circle {
+  border-radius: 50%;
+  /* border: 1px solid black; */
+  width: 20px;
+  margin: 15px 0;
+}
+.color-circle span {
+  opacity: 0;
+}

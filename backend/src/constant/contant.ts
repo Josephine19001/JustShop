@@ -1,0 +1,9 @@
+const ROLE_USER = 'USER'
+const ROLE_ADMIN = 'ADMIN'
+const ROLE_SUPER_ADMIN = 'SUPER_ADMIN'
+
+export default {
+  ROLE_ADMIN,
+  ROLE_USER,
+  ROLE_SUPER_ADMIN,
+}

@@ -1,0 +1,15 @@
+button {
+  padding: 5px 20px;
+}
+footer {
+  background-color: rgba(212, 211, 211, 0.329);
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+footer p {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.664);
+}

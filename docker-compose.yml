@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  backend:
+    container_name: justshop-backend
+    restart: always
+    build: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/app/backend
+    links:
+      - mongo
+  client:
+    container_name: justshop-client
+    restart: always
+    build: ./client
+    volumes:
+      - ./client:/usr/src/app/client
+    ports:
+      - "5000:5000"
+  mongo:
+    hostname: mongo
+    restart: always
+    image: mongo
+    ports:
+      - "27017:27017"
