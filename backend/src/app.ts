@@ -12,7 +12,6 @@ import bluebird from 'bluebird'
 import cors from 'cors'
 import { MONGODB_URI, SESSION_SECRET } from './util/secrets'
 
-import movieRouter from './routers/movie'
 import productRouter from './routers/product'
 import userRouter from './routers/user'
 
@@ -57,7 +56,6 @@ app.use(passport.initialize())
 passport.use(googleStrategy())
 
 // Use movie router
-app.use('/api/v1/movies', movieRouter)
 app.use('/api/v1/products', productRouter)
 app.use('/api/v1/users', userRouter)
 
