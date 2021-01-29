@@ -7,7 +7,9 @@ const UserLayout: FC = ({ children }) => {
   return (
     <div>
       <Menubar />
+      <div style={{minHeight: '80vh !important'}}>
       {children}
+      </div>
       <Footer />
     </div>
   );
