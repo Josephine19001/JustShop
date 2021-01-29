@@ -46,7 +46,7 @@ const MenuBar: FC = () => {
   const handleSignout = () => {
     dispatch(signOut(history));
     setToggleAuthenticate(!isAuthenticated);
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   return (
