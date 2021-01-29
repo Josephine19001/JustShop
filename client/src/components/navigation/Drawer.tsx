@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import { useSelector } from "react-redux";
+import React, { FC, useEffect, useState } from "react";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -13,15 +12,23 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 
-import { AppState } from "../../types";
-const Drawer: FC<{ open: boolean; currentUser: any }> = ({
+import {CurrentUser} from '../../types'
+
+const Drawer: FC<{ open: boolean; currentUser: CurrentUser }> = ({
   open,
   currentUser,
 }) => {
+const [, forceRerender] = useState(0)
+
+  useEffect(() => {
+   forceRerender(d=>d+1)
+  
+  }, [currentUser])
+
   return (
     <div>
       <List>
-        {currentUser.role === "ADMIN" ? (
+        {currentUser?.role === "ADMIN" ? (
           <div>
             <ListItem button>
               <Link to={"/admin"} style={{ textDecorationLine: "none" }}>
