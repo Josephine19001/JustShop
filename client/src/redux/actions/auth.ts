@@ -27,9 +27,9 @@ import {
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   UserState,
-  PasswordChangeState,
 } from "../../types";
-import { alertClear, alertFailure, alertSuccess } from "./alert";
+import { getDecodedUser } from "../../utils/getToken";
+import { alertFailure, alertSuccess } from "./alert";
 
 const baseURL = "/api/v1/users";
 
@@ -58,7 +58,6 @@ const signUpFailure = (error: string) => {
 export const signUp = (user: UserState, history: any) => {
   return function (dispatch: Dispatch) {
     dispatch(signUpRequest());
-
     axios({
       method: "post",
       url: baseURL,
@@ -127,7 +126,7 @@ export const signIn = (email: string, password: string, history: any) => {
 
 //Google Sign in action creators
 
-const googleSignInRequest = () => {
+export const googleSignInRequest = () => {
   return {
     type: GOOGLE_SIGN_IN_REQUEST,
   };
@@ -168,6 +167,8 @@ export const googleSignIn = (tokenId: string, history: any) => {
 
         const { token } = response.data;
         localStorage.setItem("USER-TOKEN", token);
+        dispatch(signInSuccess(token, getDecodedUser(token)));
+
         dispatch(googleSignInSuccess(token));
         history.push("/admin");
       })
@@ -205,7 +206,7 @@ export const signOut = function (history: any) {
     try {
       dispatch(signOutSuccess());
       localStorage.clear();
-      history.push("/");
+      history.push("/signin");
     } catch (error) {
       dispatch(signOutFailure(error));
     }
