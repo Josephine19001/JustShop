@@ -7,9 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import useStyles from "../Cart/styles";
 import { AppState, ProductState } from "../../types";
 import {
-  removeProduct,
-  increaseQuantity,
-  decreaseQuantity,
+  removeProduct
 } from "../../redux/actions/cart";
 import CheckOutForm from "./CheckoutForm";
 
