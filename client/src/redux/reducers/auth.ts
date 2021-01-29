@@ -37,24 +37,23 @@ import {
   FIND_USER_BY_SUCCESS,
 } from "../../types";
 
-export const isValidToken = (token: any) => {
-  let decoded: any = jwt.decode(token);
-  return new Date(decoded.exp * 1000) > new Date() ? decoded : null;
-};
-
 const initialState: AuthenticateUsersInitialState = {
-  currentUser: localStorage.getItem("USER-TOKEN")
-    ? isValidToken(localStorage.getItem("USER-TOKEN"))
-    : null,
-  token: localStorage.getItem("USER-TOKEN")
-    ? localStorage.getItem("USER-TOKEN")
-    : null,
+ currentUser:  {
+      id: "",
+      role: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      iat: 0,
+      exp: 0,
+  },
+  token: null,
   error: "",
   loading: false,
   isAuthenticated: false,
 };
 
-const authenticationReducer = function (state = initialState, action: any) {
+const authenticationReducer = function (state = initialState, action: any) : AuthenticateUsersInitialState{
   switch (action.type) {
     case SIGN_IN_REQUEST:
     case SIGN_UP_REQUEST:
@@ -87,7 +86,15 @@ const authenticationReducer = function (state = initialState, action: any) {
         ...state,
         loading: false,
         error: action.payload,
-        currentUser: null,
+        currentUser: {
+          id: "",
+          role: "",
+          email: "",
+          firstName: "",
+          lastName: "",
+          iat: 0,
+          exp: 0,
+      },
         isAuthenticated: false,
       };
     case SIGN_UP_SUCCESS:
@@ -102,12 +109,20 @@ const authenticationReducer = function (state = initialState, action: any) {
         isAuthenticated: true,
       };
     case SIGN_OUT_SUCCESS:
-      localStorage.removeItem("USER-TOKEN");
+      // localStorage.removeItem("USER-TOKEN");
       return {
         ...state,
         isAuthenticated: false,
         loading: false,
-        currentUser: null,
+        currentUser: {
+          id: "",
+          role: "",
+          email: "",
+          firstName: "",
+          lastName: "",
+          iat: 0,
+          exp: 0,
+      },
         token: "",
       };
     case RESET_PASSWORD_SUCCESS:
