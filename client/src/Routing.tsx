@@ -7,7 +7,7 @@ import ProductPage from "./pages/Home/Product";
 import CategoryPage from "./pages/Home/CategoryDisplay";
 import SignInPage from "./pages/Home/SignIn";
 import SignUpPage from "./pages/Home/SignUp";
-import { AdminRoute, UserRoute } from "./components/PrivateRoute";
+import { UserRoute } from "./components/PrivateRoute";
 import Dashboard from "./pages/Admin/Dashboard";
 import Products from "./pages/Admin/Products";
 import Users from "./pages/Admin/Users";
@@ -17,6 +17,7 @@ import CreateProduct from "./pages/Admin/CreateProduct";
 import UpdateProduct from "./pages/Admin/UpdatedProduct";
 import Page404 from "./pages/404Page";
 import CheckoutPage from "./pages/Home/Checkout";
+import ReturnPolicy from './pages/Home/ReturnPolicy'
 
 function Routes() {
   return (
@@ -25,6 +26,7 @@ function Routes() {
       <Route path="/register" component={SignUpPage} />
       <Route path="/signin" component={SignInPage} />
       <Route path="/order-summary" component={CheckoutPage} />
+      <Route path="/return-policy" component={ReturnPolicy} />
 
       <UserRoute path="/admin" component={Dashboard} />
       <UserRoute path="/products" component={Products} />
