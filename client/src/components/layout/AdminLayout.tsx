@@ -22,6 +22,7 @@ import { AppState } from "../../types";
 import { signOut } from "../../redux/actions/auth";
 import DrawerContent from "../navigation/Drawer";
 import Alert from "../Alert/Alert";
+import { getDecodedUser } from "../../utils/getToken";
 
 const AdminLayout: FC = ({ children }) => {
   const history = useHistory();
@@ -31,7 +32,15 @@ const AdminLayout: FC = ({ children }) => {
   const { isAuthenticated, currentUser, error } = useSelector(
     (state: AppState) => state.authentication
   );
-
+  
+  useEffect(() => {
+    
+    dispatch({type: "SIGN_IN_SUCCESS", payload: {
+      token: "",
+      user: getDecodedUser(localStorage.getItem("USER-TOKEN"))
+    }})
+  
+  }, [currentUser?.id])
   const [toggleAuthenticate, setToggleAuthenticate] = useState(isAuthenticated);
 
   const handleSignout = () => {
@@ -46,7 +55,7 @@ const AdminLayout: FC = ({ children }) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  useEffect(() => {}, [currentUser, dispatch]);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
