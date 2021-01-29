@@ -18,9 +18,9 @@ const UpdateProfile: FC = () => {
   const { loading, currentUser } = useSelector(
     (state: AppState) => state.authentication
   );
-  const [firstName, setFirstName] = useState(currentUser.firstName);
-  const [lastName, setLastName] = useState(currentUser.lastName);
-  const [email, setEmail] = useState(currentUser.email);
+  const [firstName, setFirstName] = useState(currentUser?.firstName);
+  const [lastName, setLastName] = useState(currentUser?.lastName);
+  const [email, setEmail] = useState(currentUser?.email);
   const classes = useStyles();
 
   const dispatch = useDispatch();
