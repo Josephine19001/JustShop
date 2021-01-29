@@ -7,7 +7,7 @@ const ProductItem: FC<{ src?: string; name?: string; price?: string }> = ({
 }) => {
   return (
     <div className="product-container">
-      <img src={src} />
+      <img src={src} alt='product'/>
       <p>{name}</p>
       <p>{price}</p>
     </div>
