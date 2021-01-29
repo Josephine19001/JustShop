@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect } from "react";
+import React, { useState, FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Card,
@@ -8,15 +8,12 @@ import {
   Divider,
   Button,
   Grid,
-  Avatar,
-  CardHeader,
 } from "@material-ui/core";
 
 import useStyles from "./style";
 import { AppState } from "../../types";
 import { changePassword } from "../../redux/actions/auth";
-import { alertFailure, alertSuccess } from "../../redux/actions/alert";
-import { getUserByEmail } from "../../redux/actions/users";
+import { alertFailure } from "../../redux/actions/alert";
 
 const ChangePassword: FC = () => {
   const { loading, currentUser } = useSelector(
@@ -29,10 +26,6 @@ const ChangePassword: FC = () => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getUserByEmail(email));
-  // }, [dispatch]);
 
   const handleOldPasswordChange = (
     event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -61,7 +54,7 @@ const ChangePassword: FC = () => {
     if (newPassword !== confirmPassword) {
       dispatch(alertFailure("Passwords do not match"));
     } else {
-      dispatch(changePassword(email, oldPassword, newPassword));
+      email && dispatch(changePassword(email, oldPassword, newPassword));
     }
     window.location.reload(false);
   }
