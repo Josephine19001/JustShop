@@ -203,8 +203,18 @@ export type UsersInitialState = {
   error: string;
 };
 
+export type CurrentUser = {
+    id: string,
+    role: string,
+    email: string,
+    firstName: string,
+    lastName: string,
+    iat: number,
+    exp: number
+}
+
 export type AuthenticateUsersInitialState = {
-  currentUser: any;
+  currentUser: CurrentUser;
   token: string | null;
   error: string;
   loading: boolean;
