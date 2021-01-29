@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import ReturnPolicy from "../../components/ReturnPolicy/index";
 import UserLayout from "../../components/layout/UserLayout";
