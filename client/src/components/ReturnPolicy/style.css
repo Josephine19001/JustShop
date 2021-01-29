@@ -1,12 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 .container {
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  padding: 0px 12rem;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  margin: 45px;
+  padding: 0 50px;
 }
-.container p {
+h2{
+  font-size: 1.2rem;
+}
+p {
   font-size: 0.9rem;
-  text-align: justify;
+}
+.policyContainer{
+  border: 0.8px solid rgb(160, 154, 154);
+  border-radius: 0.8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  min-width: 120vh;
+}
+.policySlider p {
+  display: block;
 }
