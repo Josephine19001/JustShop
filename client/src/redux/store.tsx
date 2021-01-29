@@ -6,8 +6,6 @@ import thunk from "redux-thunk";
 
 import createRootReducer from "./reducers/index";
 import { AppState } from "../types";
-import { isValidToken } from "./reducers/auth";
-// import rootSaga from "./sagas/index";
 
 const initState: AppState = {
   products: {
@@ -15,7 +13,6 @@ const initState: AppState = {
     loading: false,
     error: "",
     currentProduct: {},
-    // search: "",
   },
   users: {
     allUsers: [],
@@ -23,12 +20,16 @@ const initState: AppState = {
     error: "",
   },
   authentication: {
-    currentUser: localStorage.getItem("USER-TOKEN")
-      ? isValidToken(localStorage.getItem("USER-TOKEN"))
-      : null,
-    token: localStorage.getItem("USER-TOKEN")
-      ? localStorage.getItem("USER-TOKEN")
-      : null,
+    currentUser: {
+      id: "",
+      role: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      iat: 0,
+      exp: 0,
+    },
+    token: null,
     error: "",
     loading: false,
     isAuthenticated: false,
