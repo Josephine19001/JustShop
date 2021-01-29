@@ -10,11 +10,11 @@
   height: 350px;
 }
 .product-container img:hover {
-  animation: productContainer 2.8s ease-in-out;
+  animation: productContainer 1.2s ease-in-out;
 }
 @keyframes productContainer {
   50% {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 .variants {
